@@ -50,12 +50,18 @@ def clip_data_to_area_study(boundary_path, data_path, output_folder="data_proces
         print("An error occurred:", e)
 
 
-clip_data_to_area_study(
-    "data_process/dissolved.geojson",
-    "data/rivers.shp",
-)
+# List of shapefiles in the "data" folder
+shp_files = [
+    "litology.shp",
+    # "land_management.shp",
+    # "land_classification.shp",
+    # "geological.shp",
+    # "soil_type.shp",
+    # "slope.shp",
+]
 
-clip_data_to_area_study(
-    "data_process/dissolved.geojson",
-    "data/roads.shp",
-)
+for shp_file in shp_files:
+    file_path = os.path.join("data", shp_file)
+    clip_data_to_area_study(
+        boundary_path="data_process/dissolved.geojson", data_path=file_path
+    )
