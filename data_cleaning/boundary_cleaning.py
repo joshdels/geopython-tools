@@ -66,8 +66,8 @@ def clean_ph_adm4_boundaries():
     print(gdf.columns)
     print(gdf.head())
 
-    output_path = BASE_DIR / "data" / "output.shp"
-    gdf.to_file(output_path)
+    output_path = BASE_DIR / "data" / "output.gpkg"
+    gdf.to_file(output_path, driver="GPKG")
 
 
 clean_ph_adm4_boundaries()
